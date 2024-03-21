@@ -1,4 +1,4 @@
-package org.git;
+package org.git.page;
 
 import java.net.URI;
 

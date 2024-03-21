@@ -1,10 +1,10 @@
-package org.git;
+package org.git.page;
 
 import java.net.URI;
 import java.util.Objects;
 import java.util.Set;
 
-public record GitHubPrPage(URI url, String content, Set<URI> links, int prNumber) implements GitHubPage {
+public record GitHubPrPage(URI url, String content, Set<Page> links, int prNumber) implements GitHubPage {
     public GitHubPrPage {
         // TODO add verification
         Objects.requireNonNull(url);
@@ -30,4 +30,8 @@ public record GitHubPrPage(URI url, String content, Set<URI> links, int prNumber
         return Objects.hash(url);
     }
 
+    @Override
+    public URI uri() {
+        return this.url;
+    }
 }

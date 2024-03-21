@@ -1,4 +1,4 @@
-package org.git;
+package org.git.page;
 
 import java.net.URI;
 import java.util.Objects;
@@ -19,5 +19,10 @@ public record ErrorPage(URI url, Exception e) implements Page {
     @Override
     public int hashCode() {
         return Objects.hash(url);
+    }
+
+    @Override
+    public URI uri() {
+        return this.url;
     }
 }

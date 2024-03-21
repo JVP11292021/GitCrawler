@@ -1,4 +1,4 @@
-package org.git;
+package org.git.page;
 
 import java.net.URI;
 import java.util.HashSet;
@@ -29,5 +29,10 @@ public record GitHubIssuePage(URI url, String content, Set<Page> links, int issu
     @Override
     public int hashCode() {
         return Objects.hash(url);
+    }
+
+    @Override
+    public URI uri() {
+        return this.url;
     }
 }

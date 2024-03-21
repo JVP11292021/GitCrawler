@@ -1,13 +1,11 @@
-package org.git;
+package org.git.page;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.SequencedSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
-public sealed interface GitHubPage extends SuccessfulPage permits GitHubIssuePage, GitHubPage {
+public sealed interface GitHubPage extends SuccessfulPage permits GitHubIssuePage, GitHubPrPage {
 
     Set<Page> links();
 

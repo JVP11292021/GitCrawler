@@ -1,4 +1,4 @@
-package org.git;
+package org.git.page;
 
 import java.net.URI;
 import java.util.Objects;
@@ -19,5 +19,10 @@ public record ExternalPage(URI url, String content) implements SuccessfulPage {
     @Override
     public int hashCode() {
         return Objects.hash(url, content);
+    }
+
+    @Override
+    public URI uri() {
+        return this.url;
     }
 }
