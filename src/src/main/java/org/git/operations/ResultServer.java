@@ -1,6 +1,7 @@
 package org.git.operations;
 
 import com.sun.net.httpserver.SimpleFileServer;
+import lombok.extern.slf4j.Slf4j;
 import org.git.page.GitHubPage;
 import org.git.page.Page;
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +18,7 @@ import static java.util.stream.Collectors.joining;
 import static org.git.Util.asHTML;
 import static org.git.Util.join;
 
+@Slf4j
 public class ResultServer {
     public static void serve(
             @NotNull Page rootPage,

@@ -29,15 +29,15 @@ public class PageTreeFactory {
 
     public Page createPage(URI url, int depth) throws InterruptedException {
         if (resolvedPages.containsKey(url)) {
-            log.info("Found cached '{}'%n", url);
+            System.out.printf("Found cached '%s'%n", url);
             return resolvedPages.get(url);
         }
 
-        log.info("Resolving '{}'...%n", url);
+        System.out.printf("Resolving '%s'...%n", url);
         PageWithLinks pageWithLinks = fetchPageWithLinks(url);
         var page = pageWithLinks.page();
         resolvedPages.computeIfAbsent(page.uri(), __ -> page);
-        log.info("Resolved '{}' with children: {}%n", url, pageWithLinks.links());
+        System.out.printf("Resolved '%s' with children: %s%n", url, pageWithLinks.links());
 
         return switch (page) {
             case GitHubIssuePage(var isUrl, var content, _, int nr) ->
